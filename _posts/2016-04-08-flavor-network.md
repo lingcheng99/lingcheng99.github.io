@@ -17,7 +17,7 @@ Using TSNE clustering to visualize multi-dimensional data, it is clear that diff
 ![TSNE clustering](/image/tsne.png)
 
 Based on cosine similarity, I am able to recommend dishes based on flavor. The recommender will return top 20 dishes most similar to the query, in terms of flavor. The top matches usually come from the same region. Top 20 matches usually include dishes from other regional cuisines. This is a fun way to discover new cuisines based on flavor profile.
-![Recommender](/images/recommender.png)
+![Recommender](/image/recommender.png)
 
 A caveat of the flavor network is that it didn't have information on the concentration of each compound, only yes for above a certain threshold, and no for below the threshold for each compound. We all know that concentration play an important role in taste and flavor.
 Another caveat is that the flavor network covers only primary ingredients, but not compound ingredients, such as pesto, miso, and hoisin sauce, just to name a few commonly used compound ingredients in cooking.
