@@ -11,13 +11,13 @@ Flavor profile data came from Y-Y Ahn's work (see reference), including 1530 foo
 
 The next step is to project recipes with ingredient lists into the flavor space. I scrapped ~9,000 recipes using Yummly's API and pickled the dataframe. After cleaning up, I am able to match ~7000 recipes into the ingredient space. (Some recipes have to be discarded as their ingredients are not listed in the flavor network.) Using ingredient-flavor matrix, I am able to map these recipes into flavor space, with counts for each flavor compound.
 Using ingredient information as features, I am able to classify recipes into regional cuisines with 71% accuracy. I compared logistic regression, randomforest classifier, support vector machine, mulinomial naive bayes and tuned parameters. Support vector machine with linear kernels performed the best, with 71% accuracy. The accuracy could be higher if I eliminate some cuisines such as barbeque. Using flavor profile as features, classification accuracy is only 0.56, suggesting more overlap in the flavor space.
-![Classification confusion matrix]({{site.url}}/image/classification.png)
+![Classification confusion matrix](/image/classification.png)
 
 Using TSNE clustering to visualize multi-dimensional data, it is clear that different regional cuisines form distinct clusters in the ingredient space, but not the flavor space, suggesting significant flavor overlap from different regional cuisines.
-![TSNE clustering]({{site.url}}/image/tsne.png)
+![TSNE clustering](/image/tsne.png)
 
 Based on cosine similarity, I am able to recommend dishes based on flavor. The recommender will return top 20 dishes most similar to the query, in terms of flavor. The top matches usually come from the same region. Top 20 matches usually include dishes from other regional cuisines. This is a fun way to discover new cuisines based on flavor profile.
-![Recommender]({{site.url}}/images/recommender.png)
+![Recommender](/images/recommender.png)
 
 A caveat of the flavor network is that it didn't have information on the concentration of each compound, only yes for above a certain threshold, and no for below the threshold for each compound. We all know that concentration play an important role in taste and flavor.
 Another caveat is that the flavor network covers only primary ingredients, but not compound ingredients, such as pesto, miso, and hoisin sauce, just to name a few commonly used compound ingredients in cooking.
