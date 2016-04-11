@@ -3,16 +3,17 @@ layout: post
 title:  "Flavor Network!"
 date:   2016-04-08 18:32:45 -0700
 author: Ling Cheng
-categories: Data Science
+categories: 'Data Science'
 
 ---
+![Flavor Network](/image/flavor_network.png)
 Flavor network is a graph network of food ingredients based on flavor compounds they share. Using flavor network, I am able to project recipes from ingredient space to flavor space, and build a dish recommender based on similar flavor profile. It is a fun way to find dishes with similar flavor to your favorite dish but from another regional cuisine.
 
 Flavor profile data came from Y-Y Ahn's work (see reference), including 1530 food ingredients, flavor compounds and 36,781 edges. Using networkx and cytoscape, I am able to build food flavor network, with each node representing a food ingredient and the edge between nodes representing the number of flavor compounds they shared. The original network is too dense to visualize. After backbone extraction, I am able to produce a more visually compelling network graph, albeit with less ingredients, as only ingredients with significant connections to others are kept after backbone extraction.
 
 The next step is to project recipes with ingredient lists into the flavor space. I scrapped ~9,000 recipes using Yummly's API and pickled the dataframe. After cleaning up, I am able to match ~7000 recipes into the ingredient space. (Some recipes have to be discarded as their ingredients are not listed in the flavor network.) Using ingredient-flavor matrix, I am able to map these recipes into flavor space, with counts for each flavor compound.
 Using ingredient information as features, I am able to classify recipes into regional cuisines with 71% accuracy. I compared logistic regression, randomforest classifier, support vector machine, mulinomial naive bayes and tuned parameters. Support vector machine with linear kernels performed the best, with 71% accuracy. The accuracy could be higher if I eliminate some cuisines such as barbeque. Using flavor profile as features, classification accuracy is only 0.56, suggesting more overlap in the flavor space.
-![Classification confusion matrix](image/classification.png)
+![Classification confusion matrix](/image/classification.png)
 
 Using TSNE clustering to visualize multi-dimensional data, it is clear that different regional cuisines form distinct clusters in the ingredient space, but not the flavor space, suggesting significant flavor overlap from different regional cuisines.
 ![TSNE clustering](/image/tsne.png)
