@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Flavor Network!</title>
+  <meta name="description" content="Flavor network is a graph network of food ingredients based on flavor compounds they share. Using flavor network, I am able to project recipes from ingredien...">
+  
+  <meta name="author" content="Ling Cheng">
+  <meta name="copyright" content="&copy; Ling Cheng 2016">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/monokai_sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/lingcheng99.github.io/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/lingcheng99.github.io/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/lingcheng99.github.io/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/lingcheng99.github.io/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/lingcheng99.github.io/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/lingcheng99.github.io/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/lingcheng99.github.io/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/lingcheng99.github.io/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/lingcheng99.github.io/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/lingcheng99.github.io/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/lingcheng99.github.io/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/lingcheng99.github.io/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/lingcheng99.github.io/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/lingcheng99.github.io/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/lingcheng99.github.io/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/lingcheng99.github.io/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/lingcheng99.github.io/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="Flavor network is a graph network of food ingredients based on flavor compounds they share. Using flavor network, I am able to project recipes from ingredien..." />
+  <meta property="og:url" content="http://lingcheng99.github.io" />
+  <meta property="og:site_name" content="Ling's blog" />
+  <meta property="og:title" content="Flavor Network!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://lingcheng99.github.io/lingcheng99.github.io/assets/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Flavor Network!">
+  <meta name="twitter:description" content="Flavor network is a graph network of food ingredients based on flavor compounds they share. Using flavor network, I am able to project recipes from ingredien...">
+  <meta name="twitter:image" content="http://lingcheng99.github.io/lingcheng99.github.io/assets/logo.png">
+  <meta name="twitter:url" content="http://lingcheng99.github.io">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/lingcheng99.github.io/css/main.css">
+  <link rel="canonical" href="http://lingcheng99.github.io/lingcheng99.github.io/data/science/2016/04/08/flavor-network.html">
+  <link rel="alternate" type="application/rss+xml" title="Ling's blog" href="http://lingcheng99.github.io/lingcheng99.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/lingcheng99.github.io/" class="logo">
+      
+      <img src="/lingcheng99.github.io/assets/logo.png" alt="Ling's blog">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        
+          
+        
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/lingcheng99.github.io/posts/">Posts</a>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">Flavor Network!</h1>
+      <p class="info">by <strong>Ling Cheng</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">April 8, 2016</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/lingcheng99.github.io/category/Data">Data</a>, 
+    
+  
+    
+    <a href="/lingcheng99.github.io/category/Science">Science</a>
+    
+  
+  </div>
+</section>  
+
+<article class="post-content">
+  <p>Flavor network is a graph network of food ingredients based on flavor compounds they share. Using flavor network, I am able to project recipes from ingredient space to flavor space, and build a dish recommender based on similar flavor profile. It is a fun way to find dishes with similar flavor to your favorite dish but from another regional cuisine.</p>
+
+<p>Flavor profile data came from Y-Y Ahn’s work (see reference), including 1530 food ingredients, flavor compounds and 36,781 edges. Using networkx and cytoscape, I am able to build food flavor network, with each node representing a food ingredient and the edge between nodes representing the number of flavor compounds they shared. The original network is too dense to visualize. After backbone extraction, I am able to produce a more visually compelling network graph, albeit with less ingredients, as only ingredients with significant connections to others are kept after backbone extraction.</p>
+
+<p>The next step is to project recipes with ingredient lists into the flavor space. I scrapped ~9,000 recipes using Yummly’s API and pickled the dataframe. After cleaning up, I am able to match ~7000 recipes into the ingredient space. (Some recipes have to be discarded as their ingredients are not listed in the flavor network.) Using ingredient-flavor matrix, I am able to map these recipes into flavor space, with counts for each flavor compound.
+Using ingredient information as features, I am able to classify recipes into regional cuisines with 71% accuracy. I compared logistic regression, randomforest classifier, support vector machine, mulinomial naive bayes and tuned parameters. Support vector machine with linear kernels performed the best, with 71% accuracy. The accuracy could be higher if I eliminate some cuisines such as barbeque. Using flavor profile as features, classification accuracy is only 0.56, suggesting more overlap in the flavor space.
+<img src="image/classification.png" alt="Classification confusion matrix" /></p>
+
+<p>Using TSNE clustering to visualize multi-dimensional data, it is clear that different regional cuisines form distinct clusters in the ingredient space, but not the flavor space, suggesting significant flavor overlap from different regional cuisines.
+<img src="/image/tsne.png" alt="TSNE clustering" /></p>
+
+<p>Based on cosine similarity, I am able to recommend dishes based on flavor. The recommender will return top 20 dishes most similar to the query, in terms of flavor. The top matches usually come from the same region. Top 20 matches usually include dishes from other regional cuisines. This is a fun way to discover new cuisines based on flavor profile.
+<img src="/image/recommender.png" alt="Recommender" /></p>
+
+<p>A caveat of the flavor network is that it didn’t have information on the concentration of each compound, only yes for above a certain threshold, and no for below the threshold for each compound. We all know that concentration play an important role in taste and flavor.
+Another caveat is that the flavor network covers only primary ingredients, but not compound ingredients, such as pesto, miso, and hoisin sauce, just to name a few commonly used compound ingredients in cooking.
+For dish recommender, the quality of recipes is also important, as each ingredient in the recipe should play a role in shaping the flavor of that dish. Recipes with high-quality and mainly primary ingredients will get better matches than those with low-quality and some compound ingredients. Finally, human taste perception is rather complex, influenced by other sensory experience such as smell and temperature.
+The current version of dish recommender based on flavor network has a lot of room for improvement. A more comprehensive flavor compound dataset, including compound concentration and covering more food ingredients will improve it tremendously. A bigger dataset of recipes will improve the recommender as well, perhaps to a lesser degree than the flavor compound dataset.</p>
+
+</article>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/lingcheng99.github.io/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http://lingcheng99.github.io/lingcheng99.github.io/data/science/2016/04/08/flavor-network.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=Flavor+Network%21&url=http://lingcheng99.github.io/lingcheng99.github.io/data/science/2016/04/08/flavor-network.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=Flavor+Network%21&url=http://lingcheng99.github.io/lingcheng99.github.io/data/science/2016/04/08/flavor-network.html&media=http://lingcheng99.github.io/lingcheng99.github.io/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://lingcheng99.github.io/lingcheng99.github.io/data/science/2016/04/08/flavor-network.html') + '&title=Flavor Network!'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+  
+</section>
+
+
+
+
+<section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'bencentra';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Ling's blog</h3>
+
+    <div class="site-navigation">
+      
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+        
+        
+        
+        
+        
+        
+        
+        
+          <li class="nav-link"><a href="/lingcheng99.github.io/posts/">Posts</a>
+        
+        
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:lingcheng99@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">lingcheng99@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/lingcheng99" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">lingcheng99</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://www.linkedin.com/in/ling-cheng-9937b759" title="Connect with me on LinkedIn">
+              <i class="fa fa-linkedin"></i>
+              <span class="username">Ling Cheng</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/lingcheng99.github.io/feed.xml">via RSS</a></strong></p>
+      <p class="text"></p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+<script>
+
+$(document).ready(function() {
+
+  // Syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+
+});
+
+</script>
+
+
+
+
+  </body>
+
+</html>

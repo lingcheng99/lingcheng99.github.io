@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ling&#39;s blog on data science</title>
-    <description>Ling&#39;s blog on data science
-</description>
-    <link>http://lingcheng99.github.io/</link>
-    <atom:link href="http://lingcheng99.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 08 Apr 2016 19:44:40 -0700</pubDate>
-    <lastBuildDate>Fri, 08 Apr 2016 19:44:40 -0700</lastBuildDate>
+    <title>Ling&#39;s blog</title>
+    <description></description>
+    <link>http://lingcheng99.github.io/lingcheng99.github.io/</link>
+    <atom:link href="http://lingcheng99.github.io/lingcheng99.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 10 Apr 2016 23:32:20 -0700</pubDate>
+    <lastBuildDate>Sun, 10 Apr 2016 23:32:20 -0700</lastBuildDate>
     <generator>Jekyll v3.0.3</generator>
     
       <item>
@@ -28,8 +27,8 @@
 
 </description>
         <pubDate>Fri, 08 Apr 2016 18:32:45 -0700</pubDate>
-        <link>http://lingcheng99.github.io/jekyll/update/2016/04/08/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://lingcheng99.github.io/jekyll/update/2016/04/08/welcome-to-jekyll.html</guid>
+        <link>http://lingcheng99.github.io/lingcheng99.github.io/jekyll/update/2016/04/08/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://lingcheng99.github.io/lingcheng99.github.io/jekyll/update/2016/04/08/welcome-to-jekyll.html</guid>
         
         
         <category>jekyll</category>
@@ -45,11 +44,14 @@
 &lt;p&gt;Flavor profile data came from Y-Y Ahn’s work (see reference), including 1530 food ingredients, flavor compounds and 36,781 edges. Using networkx and cytoscape, I am able to build food flavor network, with each node representing a food ingredient and the edge between nodes representing the number of flavor compounds they shared. The original network is too dense to visualize. After backbone extraction, I am able to produce a more visually compelling network graph, albeit with less ingredients, as only ingredients with significant connections to others are kept after backbone extraction.&lt;/p&gt;
 
 &lt;p&gt;The next step is to project recipes with ingredient lists into the flavor space. I scrapped ~9,000 recipes using Yummly’s API and pickled the dataframe. After cleaning up, I am able to match ~7000 recipes into the ingredient space. (Some recipes have to be discarded as their ingredients are not listed in the flavor network.) Using ingredient-flavor matrix, I am able to map these recipes into flavor space, with counts for each flavor compound.
-Using ingredient information as features, I am able to classify recipes into regional cuisines with 71% accuracy. I compared logistic regression, randomforest classifier, support vector machine, mulinomial naive bayes and tuned parameters. Support vector machine with linear kernels performed the best, with 71% accuracy. The accuracy could be higher if I eliminate some cuisines such as barbeque. Using flavor profile as features, classification accuracy is only 0.56, suggesting more overlap in the flavor space.&lt;/p&gt;
+Using ingredient information as features, I am able to classify recipes into regional cuisines with 71% accuracy. I compared logistic regression, randomforest classifier, support vector machine, mulinomial naive bayes and tuned parameters. Support vector machine with linear kernels performed the best, with 71% accuracy. The accuracy could be higher if I eliminate some cuisines such as barbeque. Using flavor profile as features, classification accuracy is only 0.56, suggesting more overlap in the flavor space.
+&lt;img src=&quot;image/classification.png&quot; alt=&quot;Classification confusion matrix&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Using TSNE clustering to visualize multi-dimensional data, it is clear that different regional cuisines form distinct clusters in the ingredient space, but not the flavor space, suggesting significant flavor overlap from different regional cuisines.&lt;/p&gt;
+&lt;p&gt;Using TSNE clustering to visualize multi-dimensional data, it is clear that different regional cuisines form distinct clusters in the ingredient space, but not the flavor space, suggesting significant flavor overlap from different regional cuisines.
+&lt;img src=&quot;/image/tsne.png&quot; alt=&quot;TSNE clustering&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Based on cosine similarity, I am able to recommend dishes based on flavor. The recommender will return top 20 dishes most similar to the query, in terms of flavor. The top matches usually come from the same region. Top 20 matches usually include dishes from other regional cuisines. This is a fun way to discover new cuisines based on flavor profile.&lt;/p&gt;
+&lt;p&gt;Based on cosine similarity, I am able to recommend dishes based on flavor. The recommender will return top 20 dishes most similar to the query, in terms of flavor. The top matches usually come from the same region. Top 20 matches usually include dishes from other regional cuisines. This is a fun way to discover new cuisines based on flavor profile.
+&lt;img src=&quot;/image/recommender.png&quot; alt=&quot;Recommender&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A caveat of the flavor network is that it didn’t have information on the concentration of each compound, only yes for above a certain threshold, and no for below the threshold for each compound. We all know that concentration play an important role in taste and flavor.
 Another caveat is that the flavor network covers only primary ingredients, but not compound ingredients, such as pesto, miso, and hoisin sauce, just to name a few commonly used compound ingredients in cooking.
@@ -57,13 +59,13 @@ For dish recommender, the quality of recipes is also important, as each ingredie
 The current version of dish recommender based on flavor network has a lot of room for improvement. A more comprehensive flavor compound dataset, including compound concentration and covering more food ingredients will improve it tremendously. A bigger dataset of recipes will improve the recommender as well, perhaps to a lesser degree than the flavor compound dataset.&lt;/p&gt;
 </description>
         <pubDate>Fri, 08 Apr 2016 18:32:45 -0700</pubDate>
-        <link>http://lingcheng99.github.io/jekyll/update/2016/04/08/flavor-network.html</link>
-        <guid isPermaLink="true">http://lingcheng99.github.io/jekyll/update/2016/04/08/flavor-network.html</guid>
+        <link>http://lingcheng99.github.io/lingcheng99.github.io/data/science/2016/04/08/flavor-network.html</link>
+        <guid isPermaLink="true">http://lingcheng99.github.io/lingcheng99.github.io/data/science/2016/04/08/flavor-network.html</guid>
         
         
-        <category>jekyll</category>
+        <category>Data</category>
         
-        <category>update</category>
+        <category>Science</category>
         
       </item>
     
