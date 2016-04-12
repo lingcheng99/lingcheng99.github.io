@@ -1,4 +1,11 @@
+---
+layout: post
+title:  "Breast cancer gene signature in R"
+date:   2016-04-11 18:32:45 -0700
+author: Ling Cheng
+categories: 'Data Science'
 
+---
 
 ```R
 source("http://bioconductor.org/biocLite.R")
@@ -22,10 +29,10 @@ library(Biobase)
     Using Bioconductor 3.2 (BiocInstaller 1.20.1), R 3.2.3 (2015-12-10).
     Installing package(s) ‘breastCancerNKI’
     installing the source package ‘breastCancerNKI’
-    
 
 
-    
+
+
     The downloaded source packages are in
     	‘/private/var/folders/8_/1kwytmf91cg28trbksr84lhr0000gn/T/RtmpRCfhNC/downloaded_packages’
 
@@ -36,7 +43,7 @@ library(Biobase)
     Installing package(s) ‘genefu’
 
 
-    
+
     The downloaded binary packages are in
     	/var/folders/8_/1kwytmf91cg28trbksr84lhr0000gn/T//RtmpRCfhNC/downloaded_packages
 
@@ -59,34 +66,34 @@ library(Biobase)
     Loading required package: Biobase
     Loading required package: BiocGenerics
     Loading required package: parallel
-    
+
     Attaching package: ‘BiocGenerics’
-    
+
     The following objects are masked from ‘package:parallel’:
-    
+
         clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
         clusterExport, clusterMap, parApply, parCapply, parLapply,
         parLapplyLB, parRapply, parSapply, parSapplyLB
-    
+
     The following objects are masked from ‘package:stats’:
-    
+
         IQR, mad, xtabs
-    
+
     The following objects are masked from ‘package:base’:
-    
+
         anyDuplicated, append, as.data.frame, as.vector, cbind, colnames,
         do.call, duplicated, eval, evalq, Filter, Find, get, grep, grepl,
         intersect, is.unsorted, lapply, lengths, Map, mapply, match, mget,
         order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
         rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
         union, unique, unlist, unsplit
-    
+
     Welcome to Bioconductor
-    
+
         Vignettes contain introductory material; view with
         'browseVignettes()'. To cite Bioconductor, see
         'citation("Biobase")', and for packages 'citation("pkgname")'.
-    
+
 
 
 
@@ -106,7 +113,7 @@ nki.data <- exprs(nki)
 nki.clinical=data.frame(pData(nki))
 ```
 
-The dataset nki.data contains gene expression data, with expression profiling for ~25,000 genes from 337 patients. This is typical of gene expression data, with a lot more features than samples. Talk about curse of dimensionality. The second dataset is nki.clinical, with 21 features from 337 patients. Features include tumor size, age, tumor grade, er (estrogen receptor) positive or negative, spread to lymph node or not. This is where I benefited from being a biologist. It is hard to decipher what these abbreviated feature names mean without some knowledge of cancer biology. 
+The dataset nki.data contains gene expression data, with expression profiling for ~25,000 genes from 337 patients. This is typical of gene expression data, with a lot more features than samples. Talk about curse of dimensionality. The second dataset is nki.clinical, with 21 features from 337 patients. Features include tumor size, age, tumor grade, er (estrogen receptor) positive or negative, spread to lymph node or not. This is where I benefited from being a biologist. It is hard to decipher what these abbreviated feature names mean without some knowledge of cancer biology.
 
 
 ```R
@@ -197,17 +204,17 @@ t.test(t.dmfs~er, data=nki.clinical)
 
 
 
-    
+
     	Welch Two Sample t-test
-    
+
     data:  t.dmfs by er
     t = -3.5467, df = 118.15, p-value = 0.0005602
     alternative hypothesis: true difference in means is not equal to 0
     95 percent confidence interval:
      -1113.2280  -315.5176
     sample estimates:
-    mean in group 0 mean in group 1 
-           1997.203        2711.576 
+    mean in group 0 mean in group 1
+           1997.203        2711.576
 
 
 
@@ -275,17 +282,17 @@ t.test(t.dmfs~node,data=nki.clinical)
 
 
 
-    
+
     	Welch Two Sample t-test
-    
+
     data:  t.dmfs by node
     t = -0.42231, df = 311.31, p-value = 0.6731
     alternative hypothesis: true difference in means is not equal to 0
     95 percent confidence interval:
      -408.6473  264.2286
     sample estimates:
-    mean in group 0 mean in group 1 
-           2513.263        2585.472 
+    mean in group 0 mean in group 1
+           2513.263        2585.472
 
 
 
@@ -317,12 +324,12 @@ aov(t.dmfs~grade,data=nki.clinical)
 
     Call:
        aov(formula = t.dmfs ~ grade, data = nki.clinical)
-    
+
     Terms:
                         grade Residuals
     Sum of Squares   26584290 714684554
     Deg. of Freedom         2       316
-    
+
     Residual standard error: 1503.882
     Estimated effects may be unbalanced
     18 observations deleted due to missingness
@@ -338,8 +345,8 @@ model.tables(aov(t.dmfs~grade,data=nki.clinical))
 
 
     Tables of effects
-    
-     grade 
+
+     grade
             1   2      3
         344.6 159 -331.2
     rep  78.0 108  133.0
@@ -571,21 +578,21 @@ library(randomForest)
 
     randomForest 4.6-12
     Type rfNews() to see new features/changes/bug fixes.
-    
+
     Attaching package: ‘randomForest’
-    
+
     The following object is masked from ‘package:ggplot2’:
-    
+
         margin
-    
+
     The following object is masked from ‘package:Biobase’:
-    
+
         combine
-    
+
     The following object is masked from ‘package:BiocGenerics’:
-    
+
         combine
-    
+
 
 
 
@@ -619,7 +626,7 @@ table(rf.pred,y[-train])
 
 
 
-           
+
     rf.pred  0  1
           0 85 42
           1  9 14
@@ -672,17 +679,17 @@ summary(tune1)
 
 
 
-    
+
     Parameter tuning of ‘svm’:
-    
-    - sampling method: 10-fold cross validation 
-    
+
+    - sampling method: 10-fold cross validation
+
     - best parameters:
      cost
      0.01
-    
-    - best performance: 0.3 
-    
+
+    - best performance: 0.3
+
     - Detailed performance results:
        cost     error dispersion
     1 1e-04 0.3400000 0.04097575
@@ -714,7 +721,7 @@ table(svm1.pred,y[-train])
 
 
 
-             
+
     svm1.pred  0  1
             0 90 49
             1  4  7
@@ -756,7 +763,7 @@ table(svm2.pred,y[-train])
 
 
 
-             
+
     svm2.pred  0  1
             0 70 30
             1 24 26
@@ -802,17 +809,17 @@ summary(tune2)
 
 
 
-    
+
     Parameter tuning of ‘svm’:
-    
-    - sampling method: 10-fold cross validation 
-    
+
+    - sampling method: 10-fold cross validation
+
     - best parameters:
      degree cost
           1    1
-    
-    - best performance: 0.31 
-    
+
+    - best performance: 0.31
+
     - Detailed performance results:
       degree cost     error dispersion
     1      1 0.01 0.3400000 0.07665861
@@ -841,17 +848,17 @@ summary(tune3)
 
 
 
-    
+
     Parameter tuning of ‘svm’:
-    
-    - sampling method: 10-fold cross validation 
-    
+
+    - sampling method: 10-fold cross validation
+
     - best parameters:
      cost gamma
      0.01   0.5
-    
-    - best performance: 0.34 
-    
+
+    - best performance: 0.34
+
     - Detailed performance results:
         cost gamma error dispersion
     1  1e-02   0.5  0.34 0.07503086
@@ -900,11 +907,11 @@ perf.rf=performance(pred.rf.roc,'tpr','fpr')
     Warning message:
     : package ‘gplots’ was built under R version 3.2.4
     Attaching package: ‘gplots’
-    
+
     The following object is masked from ‘package:stats’:
-    
+
         lowess
-    
+
 
 
 
