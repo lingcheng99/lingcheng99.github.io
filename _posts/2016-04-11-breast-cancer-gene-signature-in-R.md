@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Breast cancer gene signature in R"
-date:   2016-04-11 18:32:45 -0700
+date:   2016-04-10 18:32:45 -0700
 author: Ling Cheng
 categories: 'Data Science'
 
