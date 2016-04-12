@@ -11,99 +11,15 @@ categories: 'Data Science'
 source("http://bioconductor.org/biocLite.R")
 ```
 
-    Bioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
-
-
-
 ```R
 biocLite("breastCancerNKI")
 biocLite("genefu")
 library(genefu)
 library(breastCancerNKI)
-
 library(Biobase)
 
-```
-
-    BioC_mirror: https://bioconductor.org
-    Using Bioconductor 3.2 (BiocInstaller 1.20.1), R 3.2.3 (2015-12-10).
-    Installing package(s) ‘breastCancerNKI’
-    installing the source package ‘breastCancerNKI’
-
-
-
-
-    The downloaded source packages are in
-    	‘/private/var/folders/8_/1kwytmf91cg28trbksr84lhr0000gn/T/RtmpRCfhNC/downloaded_packages’
-
-
-    Old packages: 'curl', 'lava', 'vegan'
-    BioC_mirror: https://bioconductor.org
-    Using Bioconductor 3.2 (BiocInstaller 1.20.1), R 3.2.3 (2015-12-10).
-    Installing package(s) ‘genefu’
-
-
-
-    The downloaded binary packages are in
-    	/var/folders/8_/1kwytmf91cg28trbksr84lhr0000gn/T//RtmpRCfhNC/downloaded_packages
-
-
-    Old packages: 'curl', 'lava', 'vegan'
-    Loading required package: survcomp
-    Loading required package: survival
-    Loading required package: prodlim
-    Loading required package: mclust
-    Warning message:
-    : package ‘mclust’ was built under R version 3.2.4Package 'mclust' version 5.2
-    Type 'citation("mclust")' for citing this R package in publications.
-    Loading required package: biomaRt
-    Loading required package: iC10
-    Loading required package: pamr
-    Loading required package: cluster
-    Loading required package: iC10TrainingData
-    Loading required package: AIMS
-    Loading required package: e1071
-    Loading required package: Biobase
-    Loading required package: BiocGenerics
-    Loading required package: parallel
-
-    Attaching package: ‘BiocGenerics’
-
-    The following objects are masked from ‘package:parallel’:
-
-        clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
-        clusterExport, clusterMap, parApply, parCapply, parLapply,
-        parLapplyLB, parRapply, parSapply, parSapplyLB
-
-    The following objects are masked from ‘package:stats’:
-
-        IQR, mad, xtabs
-
-    The following objects are masked from ‘package:base’:
-
-        anyDuplicated, append, as.data.frame, as.vector, cbind, colnames,
-        do.call, duplicated, eval, evalq, Filter, Find, get, grep, grepl,
-        intersect, is.unsorted, lapply, lengths, Map, mapply, match, mget,
-        order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
-        rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
-        union, unique, unlist, unsplit
-
-    Welcome to Bioconductor
-
-        Vignettes contain introductory material; view with
-        'browseVignettes()'. To cite Bioconductor, see
-        'citation("Biobase")', and for packages 'citation("pkgname")'.
-
-
-
-
-```R
 library(ggplot2)
 ```
-
-    Warning message:
-    : package ‘ggplot2’ was built under R version 3.2.4
-
 
 ```R
 data(sig.oncotypedx)
